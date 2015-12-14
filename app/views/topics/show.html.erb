@@ -22,3 +22,28 @@
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+
+<h2>Notes</h2>
+<ul>
+  <% @topic.notes.each do |note| %>
+  <li>
+    <h3><%= note.name %></h3>
+    <blockquote><%= note.body %></blockquote>
+  </li>
+  <% end %>
+</ul>
+
+<%= form_for([@topic, @topic.notes.build]) do |f| %>
+<p>
+  <%= f.text_field :name, placeholder: "Enter Name" %>
+</p>
+<p>
+  <%= f.email_field :email, placeholder: "Enter Email" %>
+</p>
+<p>
+  <%= f.text_area :body, rows: 8, cols: 50 %>
+</p>
+<p>
+  <%= f.submit "Add Notes"%>
+</p>
+<% end %>
