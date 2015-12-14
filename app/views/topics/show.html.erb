@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Done:</strong>
+  <%= check_box_tag :topic_done, "", @topic.done %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @topic.topicduration %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= link_to @topic.course.name, @topic.course %>
+</p>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

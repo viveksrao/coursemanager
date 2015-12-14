@@ -35,5 +35,17 @@
   <%= @course.released %>
 </p>
 
+<h2>Table of Contents</h2>
+<ul>
+  <% @course.topics.each do |topic| %>
+    <li>
+      <%= check_box_tag "topic_done_#{topic.id}", "", topic.done %>
+      <%= link_to topic.title, topic %>
+    </li>
+  <% end %>
+</ul>
+
+
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
